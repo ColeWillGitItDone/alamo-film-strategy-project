@@ -1,4 +1,4 @@
-# Optimizing Film Holdovers  
+# Optimizing Film Holdovers
 ### A SQL + Python analysis of per-theater performance decline to support theatrical scheduling decisions
 
 ## Overview
@@ -24,20 +24,22 @@ The goal of this project was to test whether theatrical scheduling decisions cou
 - supported
 - expanded
 
-Instead of relying only on headline gross figures, this project emphasizes **normalized performance per theater** and week-over-week momentum.
+Instead of relying only on headline gross figures, this project emphasizes **normalized performance per theater** and **week-over-week momentum**.
+
+---
+
+## Key Metrics
+
+- **53** weekly charts collected
+- **3,625** movie-week rows
+- **583** unique titles
+- **3,041** recommendation rows exported
+- **Model MAE:** 1106.88
+- **Model R²:** 0.3423
 
 ---
 
 ## Project Goals
-
-## Key Metrics
-
-- **53 weekly charts collected**
-- **3,625 movie-week rows**
-- **583 unique titles**
-- **3,041 recommendation rows exported**
-- **Model MAE:** 1106.88
-- **Model R²:** 0.3423
 
 - Build a clean, reproducible theatrical analytics workflow
 - Use SQL to analyze film-level performance over time
@@ -49,41 +51,41 @@ Instead of relying only on headline gross figures, this project emphasizes **nor
 
 ## What Was Done
 
-- Collected **53 weekly domestic box office charts**
-- Built a dataset with **3,625 movie-week records**
-- Captured **583 unique film titles**
+- Collected **53** weekly domestic box office charts
+- Built a dataset with **3,625** movie-week records
+- Captured **583** unique film titles
 - Cleaned and standardized source data in Python
-- Loaded the cleaned dataset into **SQLite**
+- Loaded the cleaned dataset into SQLite
 - Used SQL to:
   - explore the dataset
   - calculate week-over-week per-theater change
   - assign recommendation categories
-- Built a simple **linear regression model** to estimate next-week per-theater performance
+- Built a simple **linear regression** model to estimate next-week per-theater performance
 - Created visualizations to summarize trends, decline risk, and model behavior
 
 ---
 
 ## Tools Used
 
-- **Python**
-- **pandas**
-- **SQLite**
-- **SQL**
-- **matplotlib**
-- **scikit-learn**
-- **VS Code**
-- **Git / GitHub**
+- Python
+- pandas
+- SQLite
+- SQL
+- matplotlib
+- scikit-learn
+- VS Code
+- Git / GitHub
 
 ---
 
 ## Dataset
 
-Source: **The Numbers** weekly domestic box office chart pages
+**Source:** The Numbers weekly domestic box office chart pages
 
-Date range analyzed:
-- **2025-03-07 through 2026-03-06**
+**Date range analyzed:**
+- 2025-03-07 through 2026-03-06
 
-Core fields collected:
+**Core fields collected:**
 - rank
 - previous rank
 - movie title
@@ -117,13 +119,13 @@ A rule-based recommendation framework was created using:
 - theater count
 - current per-theater level
 
-Recommendation outputs:
+**Recommendation outputs:**
 - `REDUCE`
 - `HOLD`
 - `HOLD_OR_SUPPORT`
 - `EXPAND_OR_SUPPORT`
 
-Example interpretation:
+**Example interpretation:**
 - wide titles with steep negative decay were flagged for `REDUCE`
 - positive-momentum titles were often flagged for `EXPAND_OR_SUPPORT`
 
@@ -133,11 +135,9 @@ The recommendation export produced **3,041 scored movie-week rows** with the fol
 - `REDUCE`: 167
 - `HOLD_OR_SUPPORT`: 121
 
-The full recommendation output is saved in:
-- `data/processed/recommendation_outputs.csv`
-
-A smaller review-friendly sample is saved in:
-- `data/processed/recommendation_examples.csv`
+**Output files:**
+- Full output: `data/processed/recommendation_outputs.csv`
+- Review-friendly sample: `data/processed/recommendation_examples.csv`
 
 ### Sample Recommendation Examples
 
@@ -153,17 +153,17 @@ A smaller review-friendly sample is saved in:
 
 ## Predictive Modeling
 
-A simple **linear regression** model was built to estimate **next-week per-theater performance** using:
+A simple **linear regression** model was built to estimate next-week per-theater performance using:
 - current per-theater
 - theater count
 - days in release
 - new-release flag
 - wide-release flag
 
-Model results:
-- **Rows used for modeling:** 3,040
-- **MAE:** 1106.88
-- **R²:** 0.3423
+**Model results:**
+- Rows used for modeling: **3,040**
+- MAE: **1106.88**
+- R²: **0.3423**
 
 This was treated as a directional forecasting tool rather than a final production model.
 
