@@ -30,6 +30,15 @@ Instead of relying only on headline gross figures, this project emphasizes **nor
 
 ## Project Goals
 
+## Key Metrics
+
+- **53 weekly charts collected**
+- **3,625 movie-week rows**
+- **583 unique titles**
+- **3,041 recommendation rows exported**
+- **Model MAE:** 1106.88
+- **Model R²:** 0.3423
+
 - Build a clean, reproducible theatrical analytics workflow
 - Use SQL to analyze film-level performance over time
 - Create a rule-based recommendation framework for scheduling decisions
