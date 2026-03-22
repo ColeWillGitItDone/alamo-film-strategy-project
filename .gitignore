@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+data/raw/debug_week_2025_03_07.html
+data/raw/debug_week_2025_03_07.txt

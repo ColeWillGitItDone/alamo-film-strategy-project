@@ -118,6 +118,28 @@ Example interpretation:
 - wide titles with steep negative decay were flagged for `REDUCE`
 - positive-momentum titles were often flagged for `EXPAND_OR_SUPPORT`
 
+The recommendation export produced **3,041 scored movie-week rows** with the following distribution:
+- `HOLD`: 1,857
+- `EXPAND_OR_SUPPORT`: 896
+- `REDUCE`: 167
+- `HOLD_OR_SUPPORT`: 121
+
+The full recommendation output is saved in:
+- `data/processed/recommendation_outputs.csv`
+
+A smaller review-friendly sample is saved in:
+- `data/processed/recommendation_examples.csv`
+
+### Sample Recommendation Examples
+
+| Movie Title | Week Start | Recommendation |
+|---|---|---|
+| Mickey 17 | 2025-03-14 | REDUCE |
+| Rule Breakers | 2025-03-14 | REDUCE |
+| 2025 Oscar Shorts | 2025-03-14 | EXPAND_OR_SUPPORT |
+| Love & Pop | 2025-03-14 | EXPAND_OR_SUPPORT |
+| Dog Man | 2025-03-14 | HOLD_OR_SUPPORT |
+
 ---
 
 ## Predictive Modeling
