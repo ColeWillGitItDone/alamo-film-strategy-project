@@ -196,7 +196,7 @@ This chart compares the model’s predicted next-week per-theater values to actu
 
 ---
 
-## Lean Six Sigma / Process Improvement Framing
+## Process Improvement Framing
 
 ### Problem
 Scheduling adjustments may lag real demand decay.
@@ -216,6 +216,39 @@ Implement a weekly film review framework driven by:
 
 ### Control
 Review recommendations weekly and standardize programming follow-up actions.
+
+---
+
+## Lean Six Sigma Framing
+
+This project can be framed through the Lean Six Sigma **DMAIC** methodology:
+
+### Define
+The business problem was a scheduling bottleneck: films may continue occupying screen capacity even after normalized performance weakens, reducing overall programming efficiency.
+
+### Measure
+I established a baseline using weekly box office observations across **53 weeks**, including:
+- per-theater performance
+- weekly gross
+- theater count
+- days in release
+- week-over-week change
+- recommendation output counts
+
+### Analyze
+I used SQL to identify week-over-week per-theater decay and isolate titles with weakening momentum. This helped surface likely root causes of inefficient holdover allocation, especially where titles retained scale despite deteriorating normalized performance.
+
+### Improve
+I built a rule-based recommendation framework to support more standardized decisions:
+- `REDUCE`
+- `HOLD`
+- `HOLD_OR_SUPPORT`
+- `EXPAND_OR_SUPPORT`
+
+I also used a simple predictive model to estimate next-week per-theater performance as a directional decision-support tool.
+
+### Control
+To sustain improvement, the process can be repeated weekly using the same metrics, SQL logic, and recommendation outputs. This creates a repeatable review cadence and helps prevent decisions from reverting to less standardized judgment.
 
 ---
 
